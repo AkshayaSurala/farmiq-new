@@ -1,6 +1,6 @@
 import express from "express";
 import path from "path";
-import { fileURLToPath } from "url";
+
 import { GoogleGenAI } from "@google/genai";
 import dotenv from "dotenv";
 import { createServer as createViteServer } from "vite";
@@ -8,9 +8,9 @@ import fs from "fs";
 
 dotenv.config();
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const PORT = 3000;
+
+const __dirname = process.cwd();
+const PORT = process.env.PORT || 3000;
 
 // In-memory + file-backed robust store to ensure instant response and multi-device sync
 const DATA_FILE = path.join(__dirname, "data", "app_state.json");
